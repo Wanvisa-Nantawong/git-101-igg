@@ -16,7 +16,7 @@ const add =(a, b) => {
     a,SharedWorker
     aksmd
     let obj = {
-        name: 'JOKE'
+        name: 'JOKE'   
     }
 
     addEventListener
