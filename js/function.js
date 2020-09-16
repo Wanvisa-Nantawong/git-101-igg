@@ -11,7 +11,17 @@
 // function searchCustomer(customerName){
 //     find some customer
 // }
-const add =(a, b) => a + b
+const add =(a, b) => {
+    addEventListener;MediaKeySystemAccess
+    a,SharedWorker
+    aksmd
+    let obj = {
+        name: 'JOKE'
+    }
+
+    addEventListener
+    return a +b
+}
     
 
 
