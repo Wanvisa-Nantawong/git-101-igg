@@ -10,9 +10,24 @@ export default class ResumeForm extends ValidationComponent{
         skill:''
     }
 
+   
+    _onSubmit = () => {
+        this.validate({
+            name:{required: true},
+            nickname:{required: true},
+            age:{required: true, numbers: true},
+            skill:{required: true}
+        })
+    }
+
     render() {
         return (
         <View style={styles.container}>
+            <View>
+                <Text style={styles.getErrorMessages}>
+                    {this.getErrorMessages()}
+                </Text>
+            </View>
             <View>
                 <Text>Full name</Text>
                 <TextInput 
@@ -50,7 +65,10 @@ export default class ResumeForm extends ValidationComponent{
             </View>
 
             <View style={{ marginTop: 20 }}>
-                <Button title="Create Resume"></Button>
+                <Button 
+                title="Create Resume" 
+                onPress={this._onSubmit}
+                ></Button>
             </View>
 
         </View>
@@ -65,6 +83,8 @@ const styles = StyleSheet.create({
     textInput: {
         height:40, borderColor:'gray', borderWidth : 1
     },
-    textAreaInput: { height:100, borderColor:'gray',borderWidth: 1}
+    textAreaInput: { height:100, borderColor:'gray',borderWidth: 1},
+
+    getErrorMessages: {color: 'red' ,marginBottom: 20 }
 
 })
