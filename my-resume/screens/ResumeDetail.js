@@ -1,8 +1,11 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
+import {StyleSheet, View, Text } from 'react-native'
+import ResumeForm from './ResumeForm'
 
 export default (props) => {
-    const [rename, setResume] = useState({
+    
+    const [resume, setResume] = useState({
         name:'',
         nickname:'',
         age:'',
@@ -21,5 +24,19 @@ export default (props) => {
     }, []
     )
 
-    return null
+    return (
+        <View style={StyleSheet.container}>
+            <View style={styles.taxtLine}>
+                <Text>Full name : {resume.name}</Text>
+            </View>
+            <View style={styles.taxtLine}>
+                <Text>Nickname : {resume.nickname}</Text>
+            </View>
+        </View>
+    )
 }
+
+const styles = StyleSheet.create({
+    container: {padding: 30 ,backgroundColor:'white', minHeight:'100%'},
+    taxtLine: {marginBottom: 20}
+})
