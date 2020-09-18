@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, TextInput, StyleSheet, Button, Alert } from 'react-native'
 import ValidationComponent from 'react-native-form-validator'
 import axios from 'axios'
-
+import Camera from '../components/Camera'
 export default class ResumeForm extends ValidationComponent {
   state = {
     name: '',
@@ -10,7 +10,6 @@ export default class ResumeForm extends ValidationComponent {
     age: '',
     skill: ''
   }
-
   _onSubmit = () => {
     const isValid = this.validate({
       name: { required: true },
@@ -44,13 +43,13 @@ export default class ResumeForm extends ValidationComponent {
         })
     }
   }
-
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.errorMessage}>
           {this.getErrorMessages()}
         </Text>
+        <Camera/>
         <View>
           <Text>Full Name</Text>
           <TextInput
@@ -94,9 +93,9 @@ export default class ResumeForm extends ValidationComponent {
     )
   }
 }
-
 const styles = StyleSheet.create({
-  container: { padding: 30, backgroundColor: 'white', minHeight: '100%' },
+  container: { padding: 30, //backgroundColor: 'white',
+   minHeight: '100%' },
   textInput: { height: 40, borderColor: 'gray', borderWidth: 1 },
   textAreaInput: { height: 100, borderColor: 'gray', borderWidth: 1 },
   errorMessage: { color: 'red', marginBottom: 20 }
