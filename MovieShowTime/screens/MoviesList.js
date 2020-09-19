@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { View, Text , TouchableHighlight , ActivityIndicator, FlatList, StyleSheet ,Image} from 'react-native'
 import axios from 'axios'
+import moment from 'moment'
 
 export default function MovieList({navigation}) {
     const [movies, setMovies] = useState([])
@@ -26,7 +27,7 @@ export default function MovieList({navigation}) {
 
 
     return (
-        <View style={{flex:1}}>
+        <View style={{flex:1, backgroundColor:'#000000'}}>
             <FlatList
                 data={movies}
                 numColumns={2}
@@ -43,11 +44,11 @@ export default function MovieList({navigation}) {
                                  { id: item.id }
                                 )
                     }>
-                        <View style={styles.movieImage}>
+                        <View style={{ flex: 1}}>
                          <Image source={{uri: item.posterUrl}}
                                 style={styles.movieImage} />
                                  <View style={{padding: 20}}>
-                                       <Text style={styles.textDate}>{item.showingAt}</Text>
+                                       <Text style={styles.textDate}>{moment(item.showingAt).format('DD/MM/YYYY')}</Text>
                                        <Text style={styles.textTitle}>{item.name}</Text>
                                </View>
                              </View>
@@ -63,15 +64,28 @@ export default function MovieList({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        backgroundColor: '#000'
     },
     textDate: {
+        color: '#e1b12c'
     },
     textTitle: {
+        color: '#fff',
+        fontSize: 17,
+        marginTop: 5,
+        lineHeight: 25
     },
     cardMovie: {
+        flex: 0.5, 
     },
     movieImage: {
-        height:300
+        height: 300
+    },
+    loading: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
  })
  

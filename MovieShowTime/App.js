@@ -10,14 +10,35 @@ const Stack = createStackNavigator();
 
 const Navigation = () => (
   <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={
+      {
+        headerStyle:{
+          backgroundColor:'black'
+        },
+        headerTintColor:'white'
+      }
+    }>
+
       <Stack.Screen
         name="MoviesList"
         component={MoviesList}
+        options={
+          {
+            title: 'Movie show time example'
+          }
+        }
+      
       />
       <Stack.Screen
         name="MovieDetail"
         component={MovieDetail}
+        options={
+          {
+            title: null,
+            headerTruncatedBackTitle:null
+          }
+        }
       />
     </Stack.Navigator>
   </NavigationContainer>
