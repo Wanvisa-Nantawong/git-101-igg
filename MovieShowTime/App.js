@@ -14,7 +14,9 @@ const Navigation = () => (
     screenOptions={
       {
         headerStyle:{
-          backgroundColor:'black'
+          backgroundColor:'black',
+          borderBottomWidth: 0,
+          shadowOpacity:0
         },
         headerTintColor:'white'
       }
